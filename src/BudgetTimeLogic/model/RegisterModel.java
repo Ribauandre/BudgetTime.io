@@ -1,4 +1,4 @@
-package BudgetTimeModel;
+package BudgetTimeLogic.model;
 
 public class RegisterModel {
 
