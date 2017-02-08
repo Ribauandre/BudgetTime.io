@@ -1,5 +1,5 @@
 package BudgetTimeLogic;
 
-public class testcontroler {
+public class RegisterController {
 
 }
