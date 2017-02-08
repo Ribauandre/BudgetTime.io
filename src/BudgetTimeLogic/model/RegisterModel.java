@@ -9,6 +9,13 @@ public class RegisterModel {
 	String username;
 	String password; 
 	
+	public void RegisterAccount(String fName, String lName, String uName, String pword){
+		firstName = fName;
+		lastName = lName; 
+		username = uName;
+		password = pword; 
+	}
+	
 	public String getFirstName(){
 		return firstName; 
 	}

@@ -6,6 +6,11 @@ public class AccountModel{
 	String password; 
 	int accountID; 
 	
+	public void Account (String userN, String pwd, int acntID){
+		username =userN;
+		password = pwd;
+		accountID = acntID; 
+	}
 	public String getUsername(){
 		return username; 
 	}
