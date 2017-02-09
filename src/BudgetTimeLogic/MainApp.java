@@ -2,16 +2,19 @@ package BudgetTimeLogic;
 
 import java.io.IOException;
 
+import BudgetTimeLogic.model.Person;
+import BudgetTimeLogic.view.RegisterController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-    private Stage primaryStage;
+    private static Stage primaryStage;
     private BorderPane rootLayout;
 
     @Override
@@ -24,9 +27,7 @@ public class MainApp extends Application {
         showPersonOverview();
     }
 
-    /**
-     * Initializes the root layout.
-     */
+
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
@@ -43,9 +44,7 @@ public class MainApp extends Application {
         }
     }
 
-    /**
-     * Shows the person overview inside the root layout.
-     */
+    
     public void showPersonOverview() {
         try {
             // Load person overview.
@@ -60,11 +59,35 @@ public class MainApp extends Application {
         }
     }
 
-    /**
-     * Returns the main stage.
-     * @return
-     */
-    public Stage getPrimaryStage() {
+
+    public static boolean showPersonEditDialog() {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/RegisterView.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+         
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Register Person");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            RegisterController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+
+
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public static Stage getPrimaryStage() {
         return primaryStage;
     }
 
