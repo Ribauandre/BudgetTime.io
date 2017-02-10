@@ -4,6 +4,7 @@ package BudgetTimeLogic.view;
 import java.io.IOException;
 
 import BudgetTimeLogic.MainApp;
+import BudgetTimeLogic.model.LoginModel;
 import BudgetTimeLogic.model.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +41,7 @@ public class loginControler {
 	private void handleLogin() {
 		String user1 = user.getText();
 		String pass1 = pass.getText();
-		if (user1.equals("andre") && pass1.equals("super") ){
+		if (LoginModel.validate(user1, pass1)){
 			pleaseLog.setContentText("Login succesful!");
 		}
 		else{

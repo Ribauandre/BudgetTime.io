@@ -13,42 +13,33 @@ public class LoginModel extends DB {
 	Statement statement = null; 
 	ResultSet resultSet = null; 
 	
-	public void initializeConnection(){
-try{
-		String userName = "sql9158151"; 
-	    String password = "JYuhD6cFFT"; 
-	    String db_name = "sql9158151"; 
-	    String url = "sql9.freemysqlhosting.net";
-	    Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-	    connection = (Connection) DriverManager.getConnection(url, userName, password); 
-	    System.out.println("DB connection successful for database");
-		
-	} 
-
-catch (Exception e){
-	System.err.println("DB connection failed"); }
-	
-	}
 
 	
-	public boolean login(){
-		{
-			//is this how i should do this
-			
-			Scanner userInput = new Scanner (System.in);
-			 String username = userInput.next(); 
-			 String pwd = userInput.next(); 
-			 
-			 if (username.equals("srg5328") && pwd.equals("Hello")){return true;}  
-			 	
-			 if(username.equals("arb5438") && pwd.equals("power")){return true;}
-			 
-			 else {return false; }
-
-
+	public static boolean validate(String username, String pwd) 
+	{
+		boolean status=false;
+		String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9158151";
+        String usname = "sql9158151";
+        String password = "JYuhD6cFFT";
+		try
+		{  
+			Class.forName("com.mysql.jdbc.Driver");  
+			Connection con = (Connection) DB.getDataSource().getConnection(); 
+			      
+			PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from users where UserName=? and Password=?");  
+			ps.setString(1,username);  
+			ps.setString(2,pwd);  
+		  
+			ResultSet rs=(ResultSet) ps.executeQuery();  
+			status=rs.next();         
 		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}  
+			return status;  
+	}
 	
 
 	 }
-}
 

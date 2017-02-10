@@ -4,7 +4,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class DB {
 	
-	public MysqlDataSource getDataSource(){
+	public static MysqlDataSource getDataSource(){
 		
 		MysqlDataSource dataSource = new MysqlDataSource();
 		dataSource.setUser("sql9158151");
