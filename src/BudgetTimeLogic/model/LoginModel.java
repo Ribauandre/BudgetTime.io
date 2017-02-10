@@ -33,6 +33,8 @@ catch (Exception e){
 	
 	public boolean login(){
 		{
+			//is this how i should do this
+			
 			Scanner userInput = new Scanner (System.in);
 			 String username = userInput.next(); 
 			 String pwd = userInput.next(); 
