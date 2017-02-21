@@ -19,8 +19,8 @@ public class LoginModel extends DB {
 	{
 		boolean status=false;
 		String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9158151";
-        String usname = "sql9158151";
-        String password = "JYuhD6cFFT";
+        String usname = "sql9160018";
+        String password = "TqN3ywM94V";
 		try
 		{  
 			Class.forName("com.mysql.jdbc.Driver");  
