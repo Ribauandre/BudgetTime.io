@@ -5,8 +5,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.sql.PreparedStatement;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.ResultSet;
+
 import BudgetTimeLogic.model.AccountModel;
+import BudgetTimeLogic.model.DB;
 import BudgetTimeLogic.model.Person;
+import BudgetTimeLogic.model.RegisterModel;
 
 
 public class RegisterController {
@@ -62,10 +70,32 @@ public class RegisterController {
             person.setPass(passField.getText());
 
             okClicked = true;
+            
+            //add to the database
+            }
+      
             dialogStage.close();
         }
-    }
-
+  public void addNewUser(){ 
+    String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
+    String usname = "sql9160018";
+    String password = "TqN3ywM94V";
+	try
+	{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con = (Connection) DB.getDataSource().getConnection(); 
+		      
+		PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from users where UserName=? and Password=?");  
+		ps.execute("INSERT INTO Accounts " + "VALUES (1, FirstNAme, LastName, UserName, Password)");	  
+		
+		ResultSet rs=(ResultSet) ps.executeQuery();  
+		     
+	}
+	catch(Exception e)
+	{
+		System.out.println(e);
+	}  
+  }
 
     @FXML
     private void handleCancel() {
@@ -100,6 +130,8 @@ public class RegisterController {
 
             return false;
         }
+        
+        
 		return okClicked;
     }
 }
