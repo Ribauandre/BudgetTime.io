@@ -82,17 +82,26 @@ public class RegisterController {
     String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
     String usname = "sql9160018";
     String password = "TqN3ywM94V";
-	try
+    String name = firstNameField.getText();
+    String last = lastNameField.getText();
+    String user = userNameField.getText();
+    String pass = passField.getText();
+	
+    try
 	{  
 		Class.forName("com.mysql.jdbc.Driver");  
 		Connection con = (Connection) DB.getDataSource().getConnection(); 
-		      
-		PreparedStatement ps=(PreparedStatement) con.prepareStatement("INSERT INTO Accounts " + "VALUES (FirstNAme, LastName, UserName, Password, Budget = 0)");  
+	      
+		PreparedStatement ps=(PreparedStatement) con.prepareStatement("INSERT INTO Accounts " + "VALUES (FirstNAme, LastName, UserName, Password, Budget )" + " values (?,?,?,?)");  
+		ps.setString(1,name);  
+		ps.setString(2,last);
+		ps.setString(3,user);  
+		ps.setString(4,pass);
 		
-			  
+		
 		 
 	if (isInputValid()){
-		ps.execute("INSERT INTO Accounts " + "VALUES (FirstNAme, LastName, UserName, Password, Budget = 0)");
+		ps.execute();
 	}
 		
 		     
@@ -126,7 +135,7 @@ public class RegisterController {
             errorMessage += "No valid Pass"; 
         } 
         
-        if (passField.getText() != veryPass.getText())
+        if (!passField.getText().equals(veryPass.getText()) )
         {
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
