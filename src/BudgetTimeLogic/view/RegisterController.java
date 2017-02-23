@@ -75,8 +75,9 @@ public class RegisterController {
             }
       
             dialogStage.close();
-            }
-    @FXML
+        }
+    
+  
   public void addNewUser(){ 
     String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
     String usname = "sql9160018";
@@ -86,12 +87,14 @@ public class RegisterController {
 		Class.forName("com.mysql.jdbc.Driver");  
 		Connection con = (Connection) DB.getDataSource().getConnection(); 
 		      
-		PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from Accounts where UserName=? and Password=?");  
-		ps.execute("INSERT INTO Accounts " + "VALUES ( FirstNAme, LastName, UserName, Password)");	  
+		PreparedStatement ps=(PreparedStatement) con.prepareStatement("INSERT INTO Accounts " + "VALUES (FirstNAme, LastName, UserName, Password, Budget = 0)");  
 		
-		if(isInputValid()){
-		ResultSet rs=(ResultSet) ps.executeQuery();  
-		}
+			  
+		 
+	if (isInputValid()){
+		ps.execute("INSERT INTO Accounts " + "VALUES (FirstNAme, LastName, UserName, Password, Budget = 0)");
+	}
+		
 		     
 	}
 	catch(Exception e)
@@ -121,7 +124,10 @@ public class RegisterController {
 
         if (passField.getText() == null || passField.getText().length() == 0) {
             errorMessage += "No valid Pass"; 
-        } else {
+        } 
+        
+        if (passField.getText() != veryPass.getText())
+        {
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
@@ -131,9 +137,10 @@ public class RegisterController {
 
             alert.showAndWait();
 
-            return false;
         }
-        
+        else {
+        	return true; 
+        }
         
 		return okClicked;
     }
