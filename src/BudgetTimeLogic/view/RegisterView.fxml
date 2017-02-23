@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="312.0" prefWidth="462.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="BudgetTimeLogic.view.RegisterController">
+<AnchorPane prefHeight="312.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BudgetTimeLogic.view.RegisterController">
    <children>
       <Text layoutX="28.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
       <Text layoutX="28.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
@@ -19,7 +18,7 @@
       <TextField fx:id="userNameField" layoutX="156.0" layoutY="102.0" prefHeight="27.0" prefWidth="292.0" />
       <PasswordField fx:id="passField" layoutX="156.0" layoutY="142.0" prefHeight="27.0" prefWidth="292.0" />
       <PasswordField fx:id="veryPass" layoutX="156.0" layoutY="182.0" prefHeight="27.0" prefWidth="292.0" />
-      <Button layoutX="72.0" layoutY="245.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Register" />
+      <Button fx:id="registerButton" layoutX="72.0" layoutY="245.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="27.0" prefWidth="111.0" text="Register" />
       <Button layoutX="302.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="27.0" prefWidth="111.0" text="Cancle" />
    </children>
 </AnchorPane>

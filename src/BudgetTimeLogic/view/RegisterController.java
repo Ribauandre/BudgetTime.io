@@ -75,7 +75,8 @@ public class RegisterController {
             }
       
             dialogStage.close();
-        }
+            }
+    @FXML
   public void addNewUser(){ 
     String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
     String usname = "sql9160018";
@@ -86,9 +87,11 @@ public class RegisterController {
 		Connection con = (Connection) DB.getDataSource().getConnection(); 
 		      
 		PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from Accounts where UserName=? and Password=?");  
-		ps.execute("INSERT INTO Accounts " + "VALUES (1, FirstNAme, LastName, UserName, Password)");	  
+		ps.execute("INSERT INTO Accounts " + "VALUES ( FirstNAme, LastName, UserName, Password)");	  
 		
+		if(isInputValid()){
 		ResultSet rs=(ResultSet) ps.executeQuery();  
+		}
 		     
 	}
 	catch(Exception e)
