@@ -85,7 +85,7 @@ public class RegisterController {
 		Class.forName("com.mysql.jdbc.Driver");  
 		Connection con = (Connection) DB.getDataSource().getConnection(); 
 		      
-		PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from users where UserName=? and Password=?");  
+		PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from Accounts where UserName=? and Password=?");  
 		ps.execute("INSERT INTO Accounts " + "VALUES (1, FirstNAme, LastName, UserName, Password)");	  
 		
 		ResultSet rs=(ResultSet) ps.executeQuery();  

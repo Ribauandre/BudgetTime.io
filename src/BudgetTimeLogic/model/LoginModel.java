@@ -26,7 +26,7 @@ public class LoginModel extends DB {
 			Class.forName("com.mysql.jdbc.Driver");  
 			Connection con = (Connection) DB.getDataSource().getConnection(); 
 			      
-			PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from users where UserName=? and Password=?");  
+			PreparedStatement ps=(PreparedStatement) con.prepareStatement("select * from Accounts where UserName=? and Password=?");  
 			ps.setString(1,username);  
 			ps.setString(2,pwd);  
 		  
