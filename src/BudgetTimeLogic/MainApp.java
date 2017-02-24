@@ -6,7 +6,9 @@ import BudgetTimeLogic.model.Person;
 import BudgetTimeLogic.view.RegisterController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -16,11 +18,13 @@ public class MainApp extends Application {
 
     private static Stage primaryStage;
     private BorderPane rootLayout;
+    
 
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("BudgetTime.IO");
+ 
 
         initRootLayout();
 
@@ -43,6 +47,8 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+    
+    
 
     
     public void showPersonOverview() {
@@ -51,6 +57,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/LoginView.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
+
 
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);

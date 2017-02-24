@@ -8,13 +8,19 @@ import BudgetTimeLogic.model.LoginModel;
 import BudgetTimeLogic.model.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -31,16 +37,23 @@ public class loginControler {
     private Button cancelButton;
     @FXML
     private Button registerButton;
+   
+    
     
 	
 	@FXML
 	private void handleCancle() {
 		System.exit(0);
 	}
+	
 	@FXML
 	private void handleLogin() {
 		String user1 = user.getText();
 		String pass1 = pass.getText();
+		
+		
+             
+            
 		if (LoginModel.validate(user1, pass1)){
 			pleaseLog.setContentText("Login succesful!");
 		}

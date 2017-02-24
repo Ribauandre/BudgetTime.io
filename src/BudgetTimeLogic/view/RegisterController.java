@@ -91,19 +91,31 @@ public class RegisterController {
 	{  
 		Class.forName("com.mysql.jdbc.Driver");  
 		Connection con = (Connection) DB.getDataSource().getConnection(); 
+		String query = " insert into Accounts (FirstNAme, LastName, UserName, Password, Budget)"
+		        + " values (?, ?, ?, ?, ?)";
+
 	      
-		PreparedStatement ps=(PreparedStatement) con.prepareStatement("INSERT INTO Accounts " + "VALUES (FirstNAme, LastName, UserName, Password, Budget )" + " values (?,?,?,?)");  
+		PreparedStatement ps=(PreparedStatement) con.prepareStatement(query);  
 		ps.setString(1,name);  
 		ps.setString(2,last);
 		ps.setString(3,user);  
 		ps.setString(4,pass);
+		ps.setDouble(5, 0.0);
 		
 		
 		 
 	if (isInputValid()){
 		ps.execute();
+		dialogStage.close();
+		Alert alert = new Alert(AlertType.INFORMATION);
+        alert.initOwner(dialogStage);
+        alert.setTitle("BudgetTime.IO");
+        alert.setHeaderText("Succsess!");
+        alert.setContentText("Regestration Succsesfull.");
+
+        alert.showAndWait();
 	}
-		
+	con.close();	
 		     
 	}
 	catch(Exception e)

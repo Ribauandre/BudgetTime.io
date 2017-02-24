@@ -31,7 +31,8 @@ public class LoginModel extends DB {
 			ps.setString(2,pwd);  
 		  
 			ResultSet rs=(ResultSet) ps.executeQuery();  
-			status=rs.next();         
+			status=rs.next();   
+			con.close();
 		}
 		catch(Exception e)
 		{
