@@ -3,6 +3,7 @@ package BudgetTimeLogic;
 import java.io.IOException;
 
 import BudgetTimeLogic.model.Person;
+import BudgetTimeLogic.view.NavigationController;
 import BudgetTimeLogic.view.RegisterController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,8 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     private static Stage primaryStage;
-    private BorderPane rootLayout;
+    private static BorderPane rootLayout;
+    
     
 
     @Override
@@ -50,7 +52,19 @@ public class MainApp extends Application {
     
     
 
-    
+    public static void showNav() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/NavigationView.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+            rootLayout.setCenter(personOverview);
+            
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void showPersonOverview() {
         try {
             // Load person overview.
@@ -100,5 +114,6 @@ public class MainApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        
     }
 }

@@ -14,7 +14,6 @@ import com.mysql.jdbc.ResultSet;
 import BudgetTimeLogic.model.AccountModel;
 import BudgetTimeLogic.model.DB;
 import BudgetTimeLogic.model.Person;
-import BudgetTimeLogic.model.RegisterModel;
 
 
 public class RegisterController {

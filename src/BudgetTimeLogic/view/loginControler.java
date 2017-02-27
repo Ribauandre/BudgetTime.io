@@ -56,7 +56,14 @@ public class loginControler {
             
 		if (LoginModel.validate(user1, pass1)){
 			pleaseLog.setContentText("Login succesful!");
-		}
+			
+				
+	        	MainApp.showNav();
+	        	
+
+	        	
+	        	
+	        			}
 		else{
 			pleaseLog.setContentText("Invalid login");
 		}
@@ -70,6 +77,7 @@ public class loginControler {
 	        
 
 	    } 
-	}
+	        
+}
 }
 

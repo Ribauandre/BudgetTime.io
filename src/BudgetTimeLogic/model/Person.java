@@ -10,57 +10,59 @@ import javafx.beans.property.StringProperty;
 
 public class Person {
 
-    private final StringProperty firstName;
-    private final StringProperty lastName;
-    private final StringProperty userName;
-    private final StringProperty pass;
+    public String firstName;
+    public String lastName;
+    private String userName;
+    private String pass;
+    private double budget;
+    
     
 
 
-    /**
-     * Default constructor.
-     */
-    public Person() {
-        this(null, null, null, null);
-    }
-
-
-    public Person(String firstName, String lastName, String userName, String pass) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
-        this.userName = new SimpleStringProperty(userName);
-        this.pass = new SimpleStringProperty(pass);
+    public Person(String firstName, String lastName, String userName, String pass, double budget) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.pass = pass;
+        this.budget = budget;
         
     }
 
     public String getFirstName() {
-        return firstName.get();
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName.set(firstName);
+        firstName = this.firstName;
     }
 
     public String getLastName() {
-        return lastName.get();
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName.set(lastName);
+        lastName = this.lastName;
     }
     public String getUserName() {
-        return userName.get();
+        return userName;
     }
 
     public void setUserName(String userName) {
-        this.userName.set(userName);
+        userName = this.userName;
     }
     public String getPass() {
-        return pass.get();
+        return pass;
     }
 
     public void setPass(String pass) {
-        this.pass.set(pass);
+        pass = this.pass;
+    }
+    public double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(double budget) {
+    	budget = this.budget;
     }
 
 
