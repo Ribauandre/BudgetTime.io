@@ -65,7 +65,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-    public void showPersonOverview() {
+    public static void showPersonOverview() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();

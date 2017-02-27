@@ -17,12 +17,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.DialogPane;
+import javafx.scene.control.Button;
 
-public class NavigationController{
+public class NavigationController implements Initializable{
 
 	// Budget
 	// Account View
+	@FXML
+	public Button logButton;
 	@FXML
 	private TextField incomeField;
 	@FXML
@@ -35,19 +37,19 @@ public class NavigationController{
 	@FXML
 	BudgetModel budget = new BudgetModel();
 	@FXML
-	static
 	public Text accountName;
+	String name;
 	
-	public void initialize() {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		name = loginP.firstName+" "+loginP.lastName;
+		accountName.setText(name);
 		
-		
-		
-        
-		
-    }
-	public void setName(){
-		String name = loginP.firstName+" "+loginP.lastName;
-		System.out.println(accountName.getText());
+	}
+	
+	@FXML
+	public void handelLogout(){
+		System.exit(0);
 	}
 
 
@@ -95,5 +97,8 @@ public class NavigationController{
 		return false;
 
 	}
+
+	
+	
 
 }
