@@ -71,10 +71,10 @@ public class LoginModel extends DB {
 				last = rs.getString("LastName");
 				user = rs.getString("UserName");
 				pass = rs.getString("Password");
-				budget = rs.getInt("Budget");
-				status = rs.next();
+				budget = rs.getDouble("Budget");
 	            
 	        }
+			
 			
 			con.close();
 			

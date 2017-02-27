@@ -14,7 +14,7 @@ public class Person {
     public String lastName;
     private String userName;
     private String pass;
-    private double budget;
+    public double budget;
     
     
 
@@ -64,6 +64,7 @@ public class Person {
     public void setBudget(double budget) {
     	budget = this.budget;
     }
+    
 
 
    

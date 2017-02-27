@@ -35,15 +35,18 @@ public class NavigationController implements Initializable{
 	private TextField expectedExpenseField;
 	public static Person loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
 	@FXML
-	BudgetModel budget = new BudgetModel();
+	public Text budgetText;
 	@FXML
 	public Text accountName;
 	String name;
+	double bud;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		name = loginP.firstName+" "+loginP.lastName;
 		accountName.setText(name);
+		bud = loginP.budget;
+		budgetText.setText(""+bud);
 		
 	}
 	
@@ -57,11 +60,7 @@ public class NavigationController implements Initializable{
 		String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
 		String usname = "sql9160018";
 		String password = "TqN3ywM94V";
-		budget.setIncome(incomeField.getLength());
-		budget.setFreeMoney(freeMoneyField.getLength());
-		budget.setSaveMoney(savingsField.getLength());
-		budget.setExpectedExpenses(expectedExpenseField.getLength());
-
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = (Connection) DB.getDataSource().getConnection();
