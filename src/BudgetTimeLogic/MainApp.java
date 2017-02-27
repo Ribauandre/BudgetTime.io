@@ -5,6 +5,7 @@ import java.io.IOException;
 import BudgetTimeLogic.model.Person;
 import BudgetTimeLogic.view.NavigationController;
 import BudgetTimeLogic.view.RegisterController;
+import BudgetTimeLogic.view.AccountController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -47,6 +48,34 @@ public class MainApp extends Application {
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    
+    public static boolean showAccount() {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/AccountView.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+         
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Account Edit");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            AccountController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+
+
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
     }
     

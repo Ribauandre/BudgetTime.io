@@ -54,6 +54,9 @@ public class NavigationController implements Initializable{
 	public void handelLogout(){
 		System.exit(0);
 	}
+	public void accountClick(){
+		MainApp.showAccount();
+	}
 
 
 	public void inputBudget() {
