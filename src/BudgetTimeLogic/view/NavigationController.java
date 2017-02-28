@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 
@@ -24,7 +25,7 @@ public class NavigationController implements Initializable{
 	// Budget
 	// Account View
 	@FXML
-	public Button logButton;
+	public static Button logButton;
 	@FXML
 	private TextField incomeField;
 	@FXML
@@ -43,6 +44,7 @@ public class NavigationController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
 		name = loginP.firstName+" "+loginP.lastName;
 		accountName.setText(name);
 		bud = loginP.budget;
@@ -52,7 +54,8 @@ public class NavigationController implements Initializable{
 	
 	@FXML
 	public void handelLogout(){
-		System.exit(0);
+		MainApp.showPersonOverview();
+		
 	}
 	public void accountClick(){
 		MainApp.showAccount();

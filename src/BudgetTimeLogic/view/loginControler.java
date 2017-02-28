@@ -2,12 +2,15 @@ package BudgetTimeLogic.view;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import BudgetTimeLogic.MainApp;
 import BudgetTimeLogic.model.LoginModel;
 import BudgetTimeLogic.model.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,7 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-public class loginControler {
+public class loginControler implements Initializable{
 	@FXML
     private TextField user;
     @FXML
@@ -60,6 +63,7 @@ public class loginControler {
 				
 	        	MainApp.showNav();
 	        	
+	        	
 
 	        	
 	        	
@@ -79,5 +83,12 @@ public class loginControler {
 	    } 
 	        
 }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		
+		
+	}
 }
 

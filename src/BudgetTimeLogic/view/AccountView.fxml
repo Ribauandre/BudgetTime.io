@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="191.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BudgetTimeLogic.view.AccountController">
+<AnchorPane prefHeight="351.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BudgetTimeLogic.view.AccountController">
    <children>
-      <Text fx:id="userNameField" layoutX="115.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text fx:id="userNameField" layoutX="192.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="passField" layoutX="116.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text fx:id="passField" layoutX="194.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#575151" layoutX="14.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Username:" />
-      <Text fill="#575151" layoutX="14.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Password:" />
-      <Text fx:id="firstNameField" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Null" textAlignment="RIGHT" wrappingWidth="115.69629041850567">
+      <Text fill="#575151" layoutX="99.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit:" />
+      <Text fill="#575151" layoutX="99.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit:" />
+      <Text fx:id="firstNameField" layoutX="113.0" layoutY="91.0" onMouseClicked="#editFName" strokeType="OUTSIDE" strokeWidth="0.0" text="Null" textAlignment="RIGHT" wrappingWidth="115.69629041850567">
          <font>
-            <Font size="24.0" />
+            <Font size="36.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Text>
+      <Text fx:id="lastNameField" layoutX="236.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="128.8564453125">
+         <font>
+            <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="lastNameField" layoutX="147.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="128.8564453125">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
+      <Button fx:id="buttomBack" layoutX="211.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCancel" text="Done" />
    </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </AnchorPane>

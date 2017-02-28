@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-    private static Stage primaryStage;
+    public static Stage primaryStage;
     private static BorderPane rootLayout;
     
     
@@ -50,15 +50,12 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-    
-    public static boolean showAccount() {
+    /* public static boolean showFName() {
         try {
             
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/AccountView.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/editFNameView.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
-
-         
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Account Edit");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -77,7 +74,21 @@ public class MainApp extends Application {
             e.printStackTrace();
             return false;
         }
-    }
+    } */
+    
+    public static void showAccount() {
+        try {
+            
+        	 FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(MainApp.class.getResource("view/AccountView.fxml"));
+             AnchorPane personOverview = (AnchorPane) loader.load();
+             rootLayout.setCenter(personOverview);
+             
+             
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+     }
     
     
 
@@ -88,11 +99,13 @@ public class MainApp extends Application {
             loader.setLocation(MainApp.class.getResource("view/NavigationView.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
             rootLayout.setCenter(personOverview);
+
             
             
         } catch (IOException e) {
             e.printStackTrace();
         }
+		
     }
     public static void showPersonOverview() {
         try {

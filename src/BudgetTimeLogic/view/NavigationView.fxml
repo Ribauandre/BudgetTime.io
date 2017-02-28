@@ -46,7 +46,7 @@
             <Accordion layoutX="14.0" layoutY="86.0" />
          </children>
       </Pane>
-      <Text fx:id="accountName" layoutX="276.0" layoutY="35.0" onMouseClicked="#accountClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Null user" textAlignment="RIGHT" wrappingWidth="184.21875">
+      <Text fx:id="accountName" layoutX="276.0" layoutY="35.0" onDragDetected="#accountClick" onMouseClicked="#accountClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Null user" textAlignment="RIGHT" wrappingWidth="184.21875">
          <font>
             <Font size="18.0" />
          </font>
