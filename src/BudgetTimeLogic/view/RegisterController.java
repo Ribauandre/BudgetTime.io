@@ -78,9 +78,7 @@ public class RegisterController {
     
   
   public void addNewUser(){ 
-    String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
-    String usname = "sql9160018";
-    String password = "TqN3ywM94V";
+
     String name = firstNameField.getText();
     String last = lastNameField.getText();
     String user = userNameField.getText();

@@ -63,10 +63,7 @@ public class NavigationController implements Initializable{
 
 
 	public void inputBudget() {
-		String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9160018";
-		String usname = "sql9160018";
-		String password = "TqN3ywM94V";
-		
+	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = (Connection) DB.getDataSource().getConnection();

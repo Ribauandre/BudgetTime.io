@@ -26,9 +26,6 @@ public class LoginModel extends DB {
 
 	public static boolean validate(String username, String pwd) {
 		boolean status = false;
-		String url = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9158151";
-		String usname = "sql9161197";
-		String password = "gIhNBWcKYa";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = (Connection) DB.getDataSource().getConnection();
