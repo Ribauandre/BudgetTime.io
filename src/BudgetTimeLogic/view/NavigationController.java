@@ -27,6 +27,8 @@ public class NavigationController implements Initializable{
 	@FXML
 	public static Button logButton;
 	@FXML
+	public static Button editButton;
+	@FXML
 	private TextField incomeField;
 	@FXML
 	private TextField savingsField;
@@ -44,21 +46,27 @@ public class NavigationController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		LoginModel.logPerson(LoginModel.user, LoginModel.pass);
 		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
 		name = loginP.firstName+" "+loginP.lastName;
 		accountName.setText(name);
 		bud = loginP.budget;
 		budgetText.setText(""+bud);
 		
+		
 	}
 	
 	@FXML
 	public void handelLogout(){
+		loginP=null;
 		MainApp.showPersonOverview();
 		
 	}
 	public void accountClick(){
 		MainApp.showAccount();
+	}
+	public void editClick(){
+		MainApp.showIncomeEdit();
 	}
 
 

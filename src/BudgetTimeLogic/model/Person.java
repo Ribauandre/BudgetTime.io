@@ -13,7 +13,7 @@ public class Person {
     public String firstName;
     public String lastName;
     public String userName;
-    private String pass;
+    public String pass;
     public double budget;
     
     

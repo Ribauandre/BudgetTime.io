@@ -7,6 +7,7 @@ import com.mysql.jdbc.Connection;
 
 import BudgetTimeLogic.MainApp;
 import BudgetTimeLogic.model.DB;
+import BudgetTimeLogic.model.LoginModel;
 import BudgetTimeLogic.model.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -38,6 +39,7 @@ public class AccountController {
 	  
 	    @FXML
 	    private void initialize() {
+	    	LoginModel.logPerson(LoginModel.user, LoginModel.pass);
 	    	name = NavigationController.loginP.firstName;
 	    	firstNameField.setText(name);
 	    	last = NavigationController.loginP.lastName;
@@ -66,13 +68,81 @@ public class AccountController {
 		{  
 			Class.forName("com.mysql.jdbc.Driver");  
 			Connection con = (Connection) DB.getDataSource().getConnection(); 
-			String query = "UPDATE Accounts SET FirstNAme= ? WHERE Password=? ";
+			String query = "UPDATE Accounts SET FirstNAme= ? WHERE UserName=? ";
 			   
 
 		      
 			PreparedStatement ps=(PreparedStatement) con.prepareStatement(query);  
 			ps.setString(1,NavigationController.loginP.firstName);  
-			ps.setString(2,pass);
+			ps.setString(2,user);
+			ps.execute();
+
+			con.close();	
+			MainApp.showAccount();
+		     
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}  
+	  }
+	    public void editLName(){
+	    	TextInputDialog dialog = new TextInputDialog("Last Name");
+	    	dialog.setTitle("Last Name");
+	    	dialog.setHeaderText("Edit Last Name");
+	    	dialog.setContentText("Please enter your Last name:");
+
+	    	// Traditional way to get the response value.
+	    	Optional<String> result = dialog.showAndWait();
+	    	
+	    if (result.isPresent()){
+	    	NavigationController.loginP.lastName= result.get();
+	    }
+	    try
+		{  
+			Class.forName("com.mysql.jdbc.Driver");  
+			Connection con = (Connection) DB.getDataSource().getConnection(); 
+			String query = "UPDATE Accounts SET LastName= ? WHERE UserName=? ";
+			   
+
+		      
+			PreparedStatement ps=(PreparedStatement) con.prepareStatement(query);  
+			ps.setString(1,NavigationController.loginP.lastName);  
+			ps.setString(2,user);
+			ps.execute();
+
+			con.close();	
+			MainApp.showAccount();
+		     
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}  
+	  }
+	    public void editPass(){
+	    	TextInputDialog dialog = new TextInputDialog("Set new password");
+	    	dialog.setTitle("Password");
+	    	dialog.setHeaderText("New Password");
+	    	dialog.setContentText("Please enter your new Password:");
+
+	    	// Traditional way to get the response value.
+	    	Optional<String> result = dialog.showAndWait();
+	    	
+	    if (result.isPresent()){
+	    	NavigationController.loginP.pass= result.get();
+	    }
+	    try
+		{  
+			Class.forName("com.mysql.jdbc.Driver");  
+			Connection con = (Connection) DB.getDataSource().getConnection(); 
+			String query = "UPDATE Accounts SET Password= ? WHERE UserName=? ";
+			   
+
+		      
+			PreparedStatement ps=(PreparedStatement) con.prepareStatement(query);  
+			ps.setString(1,NavigationController.loginP.pass);  
+			ps.setString(2,user);
 			ps.execute();
 
 			con.close();	

@@ -89,7 +89,19 @@ public class MainApp extends Application {
              e.printStackTrace();
          }
      }
-    
+    public static void showIncomeEdit() {
+        try {
+            
+        	 FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(MainApp.class.getResource("view/incomeView.fxml"));
+             AnchorPane personOverview = (AnchorPane) loader.load();
+             rootLayout.setCenter(personOverview);
+             
+             
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+     }
     
 
     public static void showNav() {
