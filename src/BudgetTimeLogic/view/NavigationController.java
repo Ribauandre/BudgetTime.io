@@ -2,6 +2,7 @@ package BudgetTimeLogic.view;
 
 import java.net.URL;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.mysql.jdbc.Connection;
@@ -16,6 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import BudgetTimeLogic.MainApp;
 import BudgetTimeLogic.model.BudgetModel;
+import BudgetTimeLogic.model.CategoryModel;
 import BudgetTimeLogic.model.DB;
 import BudgetTimeLogic.model.LoginModel;
 import BudgetTimeLogic.model.Person;
@@ -67,12 +69,15 @@ public class NavigationController implements Initializable{
 		bud = loginP.budget;
 		budgetText.setText(""+bud);
 		
+	
 		ObservableList<String> items =(ObservableList) FXCollections.observableArrayList (
-		    "Single", "Double", "Suite", "Family App");
+		    "Food & Drink", "Gas & Fuel", "Utilities", "General Expenses","Rent", "Travel", "Subscription", "Andre Stinks");
 		catigories.setItems(items);
 		
 		
 	}
+	
+	
 	
 	@FXML
 	public void handelLogout(){
