@@ -6,11 +6,20 @@ import java.util.ResourceBundle;
 
 import com.mysql.jdbc.Connection;
 
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import BudgetTimeLogic.MainApp;
 import BudgetTimeLogic.model.BudgetModel;
 import BudgetTimeLogic.model.DB;
 import BudgetTimeLogic.model.LoginModel;
 import BudgetTimeLogic.model.Person;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -19,6 +28,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 
 public class NavigationController implements Initializable{
 
@@ -41,6 +51,10 @@ public class NavigationController implements Initializable{
 	public Text budgetText;
 	@FXML
 	public Text accountName;
+	@FXML
+	public ListView<String> catigories;
+	
+	
 	String name;
 	double bud;
 	
@@ -52,6 +66,10 @@ public class NavigationController implements Initializable{
 		accountName.setText(name);
 		bud = loginP.budget;
 		budgetText.setText(""+bud);
+		
+		ObservableList<String> items =(ObservableList) FXCollections.observableArrayList (
+		    "Single", "Double", "Suite", "Family App");
+		catigories.setItems(items);
 		
 		
 	}

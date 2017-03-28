@@ -34,6 +34,12 @@ public class AccountModel{
 	public void setAccountIDs(int acntID){
 		this.accountID = acntID; 
 	}
-	
+	public double setSpending(){
+		
+		
+		
+		
+		return 0.00;
+	}
 }
 	

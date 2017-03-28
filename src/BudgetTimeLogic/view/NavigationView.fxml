@@ -2,13 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -19,58 +21,68 @@
       <AnchorPane layoutX="-135.0" layoutY="-107.0" prefHeight="200.0" prefWidth="200.0" />
       <SplitPane dividerPositions="0.1078838174273859" orientation="VERTICAL" prefHeight="484.0" prefWidth="547.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Text fill="#2f2cc6" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BugetTime.IO" wrappingWidth="167.01309967041016">
+                     <font>
+                        <Font name="Impact" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="accountName" layoutX="273.0" layoutY="30.0" onDragDetected="#accountClick" onMouseClicked="#accountClick" strokeLineCap="BUTT" strokeType="OUTSIDE" strokeWidth="0.0" text="Null user" textAlignment="RIGHT" wrappingWidth="184.21875">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </Text>
+                  <Button fx:id="logButton" layoutX="470.0" layoutY="10.0" mnemonicParsing="false" onAction="#handelLogout" text="Logout">
+                     <effect>
+                        <SepiaTone level="0.18" />
+                     </effect>
+                  </Button>
+               </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
         </items>
       </SplitPane>
-      <Text fill="#2f2cc6" layoutX="15.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BugetTime.IO" wrappingWidth="167.01309967041016">
-         <font>
-            <Font name="Impact" size="24.0" />
-         </font>
-      </Text>
-      <Button fx:id="logButton" layoutX="473.0" layoutY="15.0" mnemonicParsing="false" onAction="#handelLogout" text="Logout" />
       <Pane fx:id="budget" layoutX="4.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="543.0">
          <children>
             <ToolBar layoutX="-4.0" layoutY="402.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="547.0">
               <items>
-                <Button fx:id="editButton" mnemonicParsing="false" onAction="#editClick" text="Total Income" />
-                  <Button mnemonicParsing="false" text="Categories" />
+                <Button fx:id="editButton" defaultButton="true" mnemonicParsing="false" onAction="#editClick" text="Total Income" />
               </items>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </ToolBar>
-            <Text fx:id="budgetText" fill="#2cc90d" layoutX="232.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" wrappingWidth="251.2187470793724">
+            <Text fx:id="budgetText" fill="#2cc90d" layoutX="243.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" wrappingWidth="251.2187470793724">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <Text layoutX="151.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spending:" />
+            <Text layoutX="171.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spending:" />
             <Accordion layoutX="14.0" layoutY="86.0" />
             <SplitPane dividerPositions="0.29797979797979796" layoutX="2.0" layoutY="64.0" prefHeight="343.0" prefWidth="536.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="278.0" prefWidth="340.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="341.0" prefWidth="94.0">
                      <children>
-                        <ScrollPane layoutX="1.0" prefHeight="341.0" prefWidth="155.0">
-                           <content>
-                              <ScrollBar orientation="VERTICAL" prefHeight="339.0" prefWidth="17.0" />
-                           </content>
-                        </ScrollPane>
-                        <ListView layoutX="20.0" layoutY="-1.0" prefHeight="343.0" prefWidth="138.0" />
+                        <ListView fx:id="catigories" layoutY="-1.0" prefHeight="343.0" prefWidth="155.0" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="183.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="183.0">
+                     <children>
+                        <BarChart prefHeight="341.0" prefWidth="371.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children></AnchorPane>
               </items>
             </SplitPane>
          </children>
       </Pane>
-      <Text fx:id="accountName" layoutX="276.0" layoutY="35.0" onDragDetected="#accountClick" onMouseClicked="#accountClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Null user" textAlignment="RIGHT" wrappingWidth="184.21875">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
-      </Text>
    </children>
 </AnchorPane>
