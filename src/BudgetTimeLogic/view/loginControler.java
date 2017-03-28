@@ -24,6 +24,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -69,7 +72,14 @@ public class loginControler implements Initializable{
 	        	
 	        			}
 		else{
-			pleaseLog.setContentText("Invalid login");
+			
+			
+			Text text1=new Text("*invalid login");
+			text1.setStyle("-fx-fill: red;");
+			TextFlow flow = new TextFlow(text1);
+			pleaseLog.setContent(flow);
+
+			
 		}
 		
 	}
