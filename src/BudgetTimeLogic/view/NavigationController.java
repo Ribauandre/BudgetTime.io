@@ -71,7 +71,7 @@ public class NavigationController implements Initializable{
 		
 	
 		ObservableList<String> items =(ObservableList) FXCollections.observableArrayList (
-		    "Food & Drink", "Gas & Fuel", "Utilities", "General Expenses","Rent", "Travel", "Subscription", "Andre Stinks");
+		    "Food & Drink", "Gas & Fuel", "Utilities", "General Expenses","Rent", "Travel", "Subscription");
 		catigories.setItems(items);
 		
 		
