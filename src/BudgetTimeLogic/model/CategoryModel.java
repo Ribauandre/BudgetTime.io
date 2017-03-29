@@ -1,24 +1,52 @@
 package BudgetTimeLogic.model;
 
 
-import java.util.ArrayList;
-
 public class CategoryModel {
 	 
+	String name;
+	String description;
+	double percentage; 
+	
 	 
-	public void categoryModel(){
-		ArrayList <String> category = new ArrayList <String>(); 
-		category.add("Food & Drink");
-		category.add("Gas & Fuel");
-		category.add("Utilities");
-		category.add("General Expenses"); 
-		category.add("Rent");  
-		category.add("Travel");
-		category.add("Subscription"); 
+	public CategoryModel(String n, String d, double p){
+		name =n;
+		description = d;
+		percentage = p; 
 		
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public double getPercentage() {
+		return percentage;
+	}
+
+
+	public void setPercentage(double percentage) {
+		this.percentage = percentage;
 	}
 	
 	
-
-
+	
+	
+	
 }

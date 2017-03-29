@@ -4,43 +4,35 @@ import java.util.ArrayList;
 import java.util.Locale.Category;
 import java.util.Scanner;
 
+import BudgetTimeLogic.model.CategoryModel;
+
 public class CategoryController {
 	
-	Scanner userInput = new Scanner (System.in);
- 
+	Scanner userInput = new Scanner(System.in); 
+	Scanner descriptionAddition = new Scanner(System.in); 
+
 	
-	public void categoryModel(){
-		ArrayList <String> category = new ArrayList <String>(); 
-		category.add("Food & Drink");
-		category.add("Gas & Fuel");
-		category.add("Utilities");
-		category.add("General Expenses"); 
-		category.add("Rent");  
-		category.add("Travel");
-		category.add("Subscription"); 
-		
-	}
+	ArrayList <CategoryModel> categories = new ArrayList(); 
+	CategoryModel FoodDrink = new CategoryModel("Food & Drink", "Budgetting for Food & Drink Beverages. Alloting 10%", 0.10);  
+	CategoryModel Utilities = new CategoryModel("Utilities", "Budgetting for Utilities like power, electricity, etc. Alloting 20%", 0.20);
+	CategoryModel Subscription = new CategoryModel("Subscription", "Budgetting for user subscriptions like Netflix, Apple Music, Hulu, etc.", 0.05); 
+	CategoryModel Rent = new CategoryModel("Rent","Budgetting for rent or housing", 0.30); 
+	CategoryModel Travel = new CategoryModel("Travel","Budget for any travel expenses", 0.10);
+	CategoryModel GasFuel = new CategoryModel("Gas & Fuel", "Budgetting for gas for automobiles", 0.10); 
+	CategoryModel  Savings = new CategoryModel("Savings","Setting aside money for savings", 0.15); 
 	
-	public void addCategory(){
-		ArrayList <String> category  = new <String> ArrayList(); 
-		for (int i = 0; i <50; i++){
-			String e = userInput.nextLine(); 
-			category.add(e);
-		}
-		
-	}
-	
-	
-	public void removeCategory(){
-		ArrayList <String> category = new <String> ArrayList(); 
-		for (int i = 0; i <50; i++){
-			int index = userInput.nextInt();
-			category.remove(index); 
+	public void searchCategory(){
+		String search = userInput.nextLine();
+		for (int i=0; i < categories.size(); i++){
+			if (categories.get(i).getName().contains(search)){
+				System.out.println(categories); 
+			}
+			else {
+				System.out.println("No category found, please try again");
+			}
 			
 		}
 	}
 	
-	public void getCategory(){
-		System.out.println(Category.DISPLAY.name());
+
 	}
-}
