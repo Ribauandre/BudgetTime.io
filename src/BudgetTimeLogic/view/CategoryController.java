@@ -34,5 +34,20 @@ public class CategoryController {
 		}
 	}
 	
+	public void editCategory(){
+		String search = userInput.nextLine(); 
+		String editName = userInput.nextLine();
+		String editDescription = userInput.nextLine();
+		double editPercentage = userInput.nextDouble();
+		for(int i=0;i<categories.size(); i++){
+			if(categories.get(i).getName().contains(search)){
+				categories.get(i).setName(editName);
+				categories.get(i).setDescription(editDescription);
+				categories.get(i).setPercentage(editPercentage);
+			}
+			
+		}
+		
+	}
 
 	}
