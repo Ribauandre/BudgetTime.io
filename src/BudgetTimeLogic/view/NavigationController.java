@@ -11,6 +11,10 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.StackPane;
@@ -24,13 +28,23 @@ import BudgetTimeLogic.model.Person;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+
 
 public class NavigationController implements Initializable{
 
@@ -55,6 +69,15 @@ public class NavigationController implements Initializable{
 	public Text accountName;
 	@FXML
 	public ListView<String> catigories;
+	@FXML
+    private DialogPane discrip;
+	CategoryAxis xAxis    = new CategoryAxis();
+	
+
+	NumberAxis yAxis = new NumberAxis();
+	
+	@FXML
+    private BarChart info = new BarChart(xAxis, yAxis);
 	
 	
 	String name;
@@ -62,18 +85,61 @@ public class NavigationController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		CategoryModel FoodDrink = new CategoryModel("Food & Drink", "Budgetting for Food & Drink Beverages. Alloting 10%", 0.10);  
+		CategoryModel Utilities = new CategoryModel("Utilities", "Budgetting for Utilities like power, electricity, etc. Alloting 20%", 0.20);
+		CategoryModel Subscription = new CategoryModel("Subscription", "Budgetting for user subscriptions like Netflix, Apple Music, Hulu, etc.", 0.05); 
+		CategoryModel Rent = new CategoryModel("Rent","Budgetting for rent or housing", 0.30); 
+		CategoryModel Travel = new CategoryModel("Travel","Budget for any travel expenses", 0.02);
+		CategoryModel GasFuel = new CategoryModel("Gas & Fuel", "Budgetting for gas for automobiles", 0.10); 
+		CategoryModel Savings = new CategoryModel("Savings","Setting aside money for savings", 0.10);
+		CategoryController.categories.clear();
 		LoginModel.logPerson(LoginModel.user, LoginModel.pass);
 		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
 		name = loginP.firstName+" "+loginP.lastName;
 		accountName.setText(name);
-		bud = loginP.budget;
+		double percent = loginP.budget * 0.87;
+		bud = loginP.budget - percent;
 		budgetText.setText(""+bud);
+		CategoryController.categories.add(FoodDrink);
+		CategoryController.categories.add(Utilities);
+		CategoryController.categories.add(Subscription);
+		CategoryController.categories.add(Rent);
+		CategoryController.categories.add(Travel);
+		CategoryController.categories.add(GasFuel);
+		CategoryController.categories.add(Savings);
+
+		xAxis.setLabel("Catigories");
+		yAxis.setLabel("Aloted Ammount");
+		info.getData().clear();
+		XYChart.Series dataSeries1 = new XYChart.Series();
+		dataSeries1.setName("Current");
+
+		dataSeries1.getData().add(new XYChart.Data("Total Income", LoginModel.budget));
 		
+		
+		
+
 	
 		ObservableList<String> items =(ObservableList) FXCollections.observableArrayList (
-		    "Food & Drink", "Gas & Fuel", "Utilities", "General Expenses","Rent", "Travel", "Subscription");
+		    "Food & Drink", "Gas & Fuel", "Utilities", "Savings","Rent", "Travel", "Subscription");
 		catigories.setItems(items);
-		
+		catigories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		        // Your action here
+		        for(int i =0; i< CategoryController.categories.size(); i++){
+		        	if(newValue.equals(CategoryController.categories.get(i).getName())){
+		        		String dis = CategoryController.categories.get(i).getDescription();
+		        		discrip.setContentText(dis);
+		        		double per = loginP.budget * CategoryController.categories.get(i).getPercentage();
+		        		dataSeries1.getData().add(new XYChart.Data(CategoryController.categories.get(i).getName(),per));
+		        		info.getData().add(dataSeries1);
+		        
+		        	}
+		        	
+		        }
+		    }
+		});
 		
 	}
 	
