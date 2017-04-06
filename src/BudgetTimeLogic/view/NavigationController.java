@@ -87,11 +87,11 @@ public class NavigationController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		CategoryModel FoodDrink = new CategoryModel("Food & Drink", "Budgetting for Food & Drink Beverages. Alloting 10%", 0.10);  
 		CategoryModel Utilities = new CategoryModel("Utilities", "Budgetting for Utilities like power, electricity, etc. Alloting 20%", 0.20);
-		CategoryModel Subscription = new CategoryModel("Subscription", "Budgetting for user subscriptions like Netflix, Apple Music, Hulu, etc.", 0.05); 
-		CategoryModel Rent = new CategoryModel("Rent","Budgetting for rent or housing", 0.30); 
-		CategoryModel Travel = new CategoryModel("Travel","Budget for any travel expenses", 0.02);
-		CategoryModel GasFuel = new CategoryModel("Gas & Fuel", "Budgetting for gas for automobiles", 0.10); 
-		CategoryModel Savings = new CategoryModel("Savings","Setting aside money for savings", 0.10);
+		CategoryModel Subscription = new CategoryModel("Subscription", "Budgetting for user subscriptions like Netflix, Apple Music, Hulu, etc., Alloting 5%", 0.05); 
+		CategoryModel Rent = new CategoryModel("Rent","Budgetting for rent or housing, alloting 30%", 0.30); 
+		CategoryModel Travel = new CategoryModel("Travel","Budget for any travel expenses, alloting 20%", 0.02);
+		CategoryModel GasFuel = new CategoryModel("Gas & Fuel", "Budgetting for gas for automobiles, alloting 10%", 0.10); 
+		CategoryModel Savings = new CategoryModel("Savings","Setting aside money for savings, alloting 10%", 0.10);
 		CategoryController.categories.clear();
 		LoginModel.logPerson(LoginModel.user, LoginModel.pass);
 		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
