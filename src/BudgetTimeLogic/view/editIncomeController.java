@@ -41,6 +41,12 @@ public class editIncomeController implements Initializable {
 		
 	    	MainApp.showNav();
 	    }
+	
+	@FXML 
+	private void handleDone(){
+		MainApp.showNav();
+	}
+	
 	@FXML
 	 private void handleIncome() {
 		TextInputDialog dialog = new TextInputDialog("Set new weekly income");
