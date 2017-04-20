@@ -42,10 +42,12 @@ public class editIncomeController implements Initializable {
 	    	MainApp.showNav();
 	    }
 	
-	@FXML 
-	private void handleDone(){
+	
+	/*@FXML 
+	 * private void handleDone(){
+		   //  <Button layoutX = "160.0" layoutY="124.0" mnemonicParsig = "false" onAction="#handleDone" prefHeight = "27.0" prefWidth ="82.0" text ="Cancel />
 		MainApp.showNav();
-	}
+	}*/
 	
 	@FXML
 	 private void handleIncome() {
