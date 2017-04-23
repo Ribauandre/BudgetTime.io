@@ -8,10 +8,10 @@ public class DB {
 	public static MysqlDataSource getDataSource(){
 		
 		MysqlDataSource dataSource = new MysqlDataSource();
-		dataSource.setUser("sql9164247");
-		dataSource.setPassword("xlLPT8biED");
+		dataSource.setUser("sql9170383");
+		dataSource.setPassword("IEDVIdg2qf");
 		dataSource.setServerName("sql9.freemysqlhosting.net");
-		dataSource.setDatabaseName("sql9164247");
+		dataSource.setDatabaseName("sql9170383");
 		dataSource.setPortNumber(3306);
 		return dataSource;
 		

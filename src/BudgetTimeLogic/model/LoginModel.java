@@ -22,6 +22,14 @@ public class LoginModel extends DB {
 	public static String user;
 	public static String pass;
 	public static double budget;
+	public static double FoodDrink;
+	public static double Utilities;
+	public static double Subscription;
+	public static double Rent;
+	public static double Travel;
+	public static double GasFuel;
+	public static double Savings;
+	
 	
 
 	public static boolean validate(String username, String pwd) {
@@ -67,6 +75,13 @@ public class LoginModel extends DB {
 				user = rs.getString("UserName");
 				pass = rs.getString("Password");
 				budget = rs.getDouble("Budget");
+				FoodDrink = rs.getDouble("FoodDrink");
+				Utilities = rs.getDouble("Utilities");
+				Subscription = rs.getDouble("Subscription");
+				Rent = rs.getDouble("Rent");
+				Travel = rs.getDouble("Travel");
+				GasFuel = rs.getDouble("GasFuel");
+				Savings = rs.getDouble("Savings");
 	            
 	        }
 			

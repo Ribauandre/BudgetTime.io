@@ -51,6 +51,7 @@
             <ToolBar layoutX="-4.0" layoutY="402.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="547.0">
               <items>
                 <Button fx:id="editButton" defaultButton="true" mnemonicParsing="false" onAction="#editClick" text="Total Income" />
+                  <Button fx:id="catButton" mnemonicParsing="false" onAction="#catClick" text="Categories" />
               </items>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

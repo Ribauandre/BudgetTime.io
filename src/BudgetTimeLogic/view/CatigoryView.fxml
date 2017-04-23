@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="314.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BudgetTimeLogic.view.CategoryController">
+   <children>
+      <AnchorPane layoutX="-130.0" layoutY="-195.0" prefHeight="200.0" prefWidth="200.0" />
+      <Text layoutX="31.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodDrink" />
+      <Text layoutX="31.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilities" />
+      <Text layoutX="31.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subscription" />
+      <Text layoutX="31.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent" />
+      <Text layoutX="31.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gas and Fuel" />
+      <Text layoutX="31.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings" />
+      <Text layoutX="31.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel" />
+      <Text fx:id="FoodDrink" layoutX="187.0" layoutY="42.0" onMouseClicked="#editFood" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text fx:id="Utilities" layoutX="187.0" layoutY="81.0" onMouseClicked="#editUtilities" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text fx:id="Subscription" layoutX="187.0" layoutY="119.0" onMouseClicked="#editSubscription" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text fx:id="Rent" layoutX="187.0" layoutY="153.0" onMouseClicked="#editRent" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text fx:id="Travel" layoutX="187.0" layoutY="188.0" onMouseClicked="#editTravel" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text fx:id="GasFuel" layoutX="187.0" layoutY="226.0" onMouseClicked="#editGasFueld" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text fx:id="Savings" layoutX="187.0" layoutY="265.0" onMouseClicked="#editSavings" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Text>
+      <Text layoutX="121.0" layoutY="296.0" onMouseClicked="#handleCancel" strokeType="OUTSIDE" strokeWidth="0.0" text="Cancel">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Text>
+   </children>
+</AnchorPane>

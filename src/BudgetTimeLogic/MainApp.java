@@ -75,7 +75,19 @@ public class MainApp extends Application {
             return false;
         }
     } */
-    
+    public static void showCat() {
+        try {
+            
+        	 FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(MainApp.class.getResource("view/CatigoryView.fxml"));
+             AnchorPane personOverview = (AnchorPane) loader.load();
+             rootLayout.setCenter(personOverview);
+             
+             
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+     }
     public static void showAccount() {
         try {
             

@@ -58,7 +58,6 @@ public class AccountController {
 	    	dialog.setHeaderText("Edit First Name");
 	    	dialog.setContentText("Please enter your first name:");
 
-	    	// Traditional way to get the response value.
 	    	Optional<String> result = dialog.showAndWait();
 	    	
 	    if (result.isPresent()){

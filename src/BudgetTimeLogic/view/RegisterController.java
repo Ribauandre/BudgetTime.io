@@ -88,8 +88,8 @@ public class RegisterController {
 	{  
 		Class.forName("com.mysql.jdbc.Driver");  
 		Connection con = (Connection) DB.getDataSource().getConnection(); 
-		String query = " insert into Accounts (FirstNAme, LastName, UserName, Password, Budget)"
-		        + " values (?, ?, ?, ?, ?)";
+		String query = " insert into Accounts (FirstNAme, LastName, UserName, Password, Budget, FoodDrink, Utilities, Subscription, Rent, Travel, GasFuel, Savings )"
+		        + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	      
 		PreparedStatement ps=(PreparedStatement) con.prepareStatement(query);  
@@ -98,6 +98,13 @@ public class RegisterController {
 		ps.setString(3,user);  
 		ps.setString(4,pass);
 		ps.setDouble(5, 0.0);
+		ps.setDouble(6, 0.10);
+		ps.setDouble(7, 0.20);
+		ps.setDouble(8, 0.05);
+		ps.setDouble(9, 0.30);
+		ps.setDouble(10, 0.02);
+		ps.setDouble(11, 0.10);
+		ps.setDouble(12, 0.10);
 		
 		
 		 

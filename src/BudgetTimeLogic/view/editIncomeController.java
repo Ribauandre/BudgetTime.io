@@ -17,7 +17,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.text.Text;
 
 public class editIncomeController implements Initializable {
-	public static Person loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
+	public static Person loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget, LoginModel.FoodDrink, LoginModel.Utilities, LoginModel.Subscription, LoginModel.Rent, LoginModel.Travel, LoginModel.GasFuel, LoginModel.Savings);
 	@FXML
 	public Text budgetText;
 	double bud;
@@ -30,7 +30,7 @@ public class editIncomeController implements Initializable {
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		LoginModel.logPerson(LoginModel.user, LoginModel.pass);
-		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
+		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget, LoginModel.FoodDrink, LoginModel.Utilities, LoginModel.Subscription, LoginModel.Rent, LoginModel.Travel, LoginModel.GasFuel, LoginModel.Savings);
 		user = NavigationController.loginP.userName;
 		bud = loginP.budget;
 		budgetText.setText(""+bud);

@@ -5,8 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="152.0" prefWidth="406.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="BudgetTimeLogic.view.editIncomeController">
+<AnchorPane prefHeight="152.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BudgetTimeLogic.view.editIncomeController">
    <children>
       <AnchorPane layoutX="-1.0" prefHeight="172.0" prefWidth="406.0">
          <children>
@@ -20,7 +19,7 @@
                   <Font size="49.0" />
                </font>
             </Text>
-            <Button layoutX="165.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="27.0" prefWidth="82.0" text="Cancel" />
+            <Button layoutX="165.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="27.0" prefWidth="82.0" text="Done" />
          </children>
       </AnchorPane>
    </children>

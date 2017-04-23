@@ -15,16 +15,30 @@ public class Person {
     public String userName;
     public String pass;
     public double budget;
+    public double FoodDrink;
+    public double Utilities;
+    public double Subscription;
+    public double Rent;
+    public double Travel;
+    public double GasFuel;
+    public double Savings;
     
     
 
 
-    public Person(String firstName, String lastName, String userName, String pass, double budget) {
+    public Person(String firstName, String lastName, String userName, String pass, double budget, double FoodDrink, double Utilities, double Subscription, double Rent, double Travel, double GasFuel, double Savings) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.pass = pass;
         this.budget = budget;
+        this.FoodDrink = FoodDrink;
+        this.Utilities = Utilities;
+        this.Subscription = Subscription;
+        this.Rent = Rent;
+        this.Travel = Travel;
+        this.GasFuel = GasFuel;
+        this.Savings = Savings;
         
     }
 
