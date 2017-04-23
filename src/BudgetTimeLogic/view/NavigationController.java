@@ -55,6 +55,8 @@ public class NavigationController implements Initializable{
 	@FXML
 	public static Button editButton;
 	@FXML
+	public static Button catButton;
+	@FXML
 	private TextField incomeField;
 	@FXML
 	private TextField savingsField;
@@ -62,7 +64,7 @@ public class NavigationController implements Initializable{
 	private TextField freeMoneyField;
 	@FXML
 	private TextField expectedExpenseField;
-	public static Person loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
+	public static Person loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget, LoginModel.FoodDrink, LoginModel.Utilities, LoginModel.Subscription, LoginModel.Rent, LoginModel.Travel, LoginModel.GasFuel, LoginModel.Savings);
 	@FXML
 	public Text budgetText;
 	@FXML
@@ -85,16 +87,16 @@ public class NavigationController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		CategoryModel FoodDrink = new CategoryModel("Food & Drink", "Budgetting for Food & Drink Beverages. Alloting 10%", 0.10);  
-		CategoryModel Utilities = new CategoryModel("Utilities", "Budgetting for Utilities like power, electricity, etc. Alloting 20%", 0.20);
-		CategoryModel Subscription = new CategoryModel("Subscription", "Budgetting for user subscriptions like Netflix, Apple Music, Hulu, etc., Alloting 5%", 0.05); 
-		CategoryModel Rent = new CategoryModel("Rent","Budgetting for rent or housing, alloting 30%", 0.30); 
-		CategoryModel Travel = new CategoryModel("Travel","Budget for any travel expenses, alloting 20%", 0.02);
-		CategoryModel GasFuel = new CategoryModel("Gas & Fuel", "Budgetting for gas for automobiles, alloting 10%", 0.10); 
-		CategoryModel Savings = new CategoryModel("Savings","Setting aside money for savings, alloting 10%", 0.10);
+		CategoryModel FoodDrink = new CategoryModel("Food & Drink", "Budgetting for Food & Drink Beverages. Alloting 10%",LoginModel.FoodDrink);  
+		CategoryModel Utilities = new CategoryModel("Utilities", "Budgetting for Utilities like power, electricity, etc. Alloting 20%", LoginModel.Utilities);
+		CategoryModel Subscription = new CategoryModel("Subscription", "Budgetting for user subscriptions like Netflix, Apple Music, Hulu, etc.", LoginModel.Subscription); 
+		CategoryModel Rent = new CategoryModel("Rent","Budgetting for rent or housing", LoginModel.Rent); 
+		CategoryModel Travel = new CategoryModel("Travel","Budget for any travel expenses", LoginModel.Travel);
+		CategoryModel GasFuel = new CategoryModel("Gas & Fuel", "Budgetting for gas for automobiles", LoginModel.GasFuel); 
+		CategoryModel Savings = new CategoryModel("Savings","Setting aside money for savings", LoginModel.Savings);
 		CategoryController.categories.clear();
 		LoginModel.logPerson(LoginModel.user, LoginModel.pass);
-		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget);
+		loginP = new Person(LoginModel.name, LoginModel.last, LoginModel.user, LoginModel.pass, LoginModel.budget, LoginModel.FoodDrink, LoginModel.Utilities, LoginModel.Subscription, LoginModel.Rent, LoginModel.Travel, LoginModel.GasFuel, LoginModel.Savings);
 		name = loginP.firstName+" "+loginP.lastName;
 		accountName.setText(name);
 		double percent = loginP.budget * 0.87;
@@ -110,25 +112,22 @@ public class NavigationController implements Initializable{
 
 		xAxis.setLabel("Catigories");
 		yAxis.setLabel("Aloted Ammount");
-		info.getData().clear();
-		XYChart.Series dataSeries1 = new XYChart.Series();
-		dataSeries1.setName("Current");
-
-		dataSeries1.getData().add(new XYChart.Data("Total Income", LoginModel.budget));
-		
-		
 		
 
-	
 		ObservableList<String> items =(ObservableList) FXCollections.observableArrayList (
 		    "Food & Drink", "Gas & Fuel", "Utilities", "Savings","Rent", "Travel", "Subscription");
 		catigories.setItems(items);
 		catigories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-		        // Your action here
 		        for(int i =0; i< CategoryController.categories.size(); i++){
+		        	
+	
 		        	if(newValue.equals(CategoryController.categories.get(i).getName())){
+		        		info.getData().clear();
+		        		XYChart.Series dataSeries1 = new XYChart.Series();
+		        		dataSeries1.setName("Current");
+		        		dataSeries1.getData().add(new XYChart.Data("Total Income", LoginModel.budget));
 		        		String dis = CategoryController.categories.get(i).getDescription();
 		        		discrip.setContentText(dis);
 		        		double per = loginP.budget * CategoryController.categories.get(i).getPercentage();
@@ -136,6 +135,7 @@ public class NavigationController implements Initializable{
 		        		info.getData().add(dataSeries1);
 		        
 		        	}
+		        	
 		        	
 		        }
 		    }
@@ -153,6 +153,9 @@ public class NavigationController implements Initializable{
 	}
 	public void accountClick(){
 		MainApp.showAccount();
+	}
+	public void catClick(){
+		MainApp.showCat();
 	}
 	public void editClick(){
 		MainApp.showIncomeEdit();
